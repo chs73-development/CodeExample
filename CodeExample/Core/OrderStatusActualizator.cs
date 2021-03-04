@@ -55,11 +55,11 @@ namespace ApsStatuses
         /// <param name="dbRepository">Обьект, предоставляющий методы для работы с БД</param>
         /// <param name="config">Объект, предоставляющий данные конфигурации</param>
         /// <exception cref="ArgumentNullException">Генерируется, если любому из параметров передается значение null</exception>
-        public OrderStatusActualizator(UniversalStatusProvider statusProvider, OrderStatusDbRepository dbRepository, OrderStatusConfig config, EmailSender emailSender, EmailComposer emailComposer)
+        public OrderStatusActualizator(UniversalStatusProvider statusProvider, OrderStatusDbRepository dbRepository, OrderStatusConfig config)
         {
-            this.dbRepository = dbRepository ?? throw new ArgumentNullException("Параметр dbRepository не может принимать значение null");
-            this.statusProvider = statusProvider ?? throw new ArgumentNullException("Параметр statusProvider не может принимать значение null");
-            this.config = config ?? throw new ArgumentNullException("Параметр config не может принимать значение null");           
+            this.dbRepository = dbRepository ?? throw new ArgumentNullException(nameof(dbRepository));
+            this.statusProvider = statusProvider ?? throw new ArgumentNullException(nameof(statusProvider));
+            this.config = config ?? throw new ArgumentNullException(nameof(config));           
         }                
 
         /// <summary>
